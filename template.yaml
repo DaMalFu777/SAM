@@ -24,7 +24,7 @@ Resources:
           TABLE_NAME: !Ref ItemsTable
       Policies:
         - DynamoDBCrudPolicy:
-          TableName: !Ref ItemsTable
+            TableName: !Ref ItemsTable
       Events:
         CreateItem:
           Type: Api
