@@ -22,16 +22,9 @@ Resources:
       Environment:
         Variables:
           TABLE_NAME: !Ref ItemsTable
-    Policies:
-      - Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Action:
-              - dynamodb:PutItem
-              - dynamodb:GetItem
-              - dynamodb:UpdateItem
-              - dynamodb:DeleteItem
-            Resource: !GetAtt ItemsTable.Arn
+      Policies:
+        -DynamoDBCrudPolicy:
+          TableName: !Ref ItemsTable
       Events:
         CreateItem:
           Type: Api
