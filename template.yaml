@@ -23,7 +23,7 @@ Resources:
         Variables:
           TABLE_NAME: !Ref ItemsTable
       Policies:
-        -DynamoDBCrudPolicy:
+        - DynamoDBCrudPolicy:
           TableName: !Ref ItemsTable
       Events:
         CreateItem:
