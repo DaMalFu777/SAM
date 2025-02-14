@@ -12,7 +12,7 @@ Resources:
   ItemsTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub ${Environment}-${Project}-ItemsTable
+      
       AttributeDefinitions:
         - AttributeName: id
           AttributeType: S
