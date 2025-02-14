@@ -1,10 +1,18 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+  Project:
+    Type: String
+    Default: samcrud
 Resources:
   ItemsTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      TableName: !Sub ${Environment}-${Project}-ItemsTable
       AttributeDefinitions:
         - AttributeName: id
           AttributeType: S
@@ -16,6 +24,7 @@ Resources:
   CrudFunction:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: !Sub ${Environment}-${Project}-CrudFunction
       CodeUri: src/
       Handler: index.handler
       Runtime: nodejs18.x
